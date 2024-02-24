@@ -13,25 +13,38 @@ const app = express();
   // res.send (`Ini String dari Respon`);
 // });
 
-app.get('/', (req,res) => {
-  res.send('This is Homepage');
+// app.get('/', (req,res) => {
+//   res.send('This is Homepage');
+// });
+
+// app.get('/cats', (req,res) => {
+//   res.send('This is Cats Page');
+// });
+
+// app.get('/about', (req,res) => {
+//   res.send('This is About Page');
+// });
+
+// app.post('/cats', (req,res) => {
+
+// });
+
+// // Harus ditempatkan dipaling bawah dan tidak boleh ditempat di atas
+// app.get('*', (req,res) => {
+//   res.send('Halaman tidak dapat ditemukan !!');
+// });
+
+// Misal
+// domain.com/blog/title dinamis sesuai judul
+
+app.get('/blog/:judul', (req, res) => {
+  const { judul } = req.params;
+  res.send(`Kita Melihat Judul Params: ${judul}`);
 });
 
-app.get('/cats', (req,res) => {
-  res.send('This is Cats Page');
-});
-
-app.get('/about', (req,res) => {
-  res.send('This is About Page');
-});
-
-app.post('/cats', (req,res) => {
-
-});
-
-// Harus ditempatkan dipaling bawah dan tidak boleh ditempat di atas
-app.get('*', (req,res) => {
-  res.send('Halaman tidak dapat ditemukan !!');
+app.get('/blog/:category/:judul/:author', (req, res) => {
+  const { category, judul, author } = req.params;
+  res.send(`Blog dengan Kategori : ${category} | Author: ${author} | Judul: ${judul}`);
 });
 
 
