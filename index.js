@@ -17,9 +17,9 @@ const app = express();
 //   res.send('This is Homepage');
 // });
 
-// app.get('/cats', (req,res) => {
-//   res.send('This is Cats Page');
-// });
+app.get('/cats', (req,res) => {
+  res.send('This is Cats Page');
+});
 
 // app.get('/about', (req,res) => {
 //   res.send('This is About Page');
@@ -29,13 +29,6 @@ const app = express();
 
 // });
 
-// // Harus ditempatkan dipaling bawah dan tidak boleh ditempat di atas
-// app.get('*', (req,res) => {
-//   res.send('Halaman tidak dapat ditemukan !!');
-// });
-
-// Misal
-// domain.com/blog/title dinamis sesuai judul
 
 app.get('/blog/:judul', (req, res) => {
   const { judul } = req.params;
@@ -46,6 +39,20 @@ app.get('/blog/:category/:judul/:author', (req, res) => {
   const { category, judul, author } = req.params;
   res.send(`Blog dengan Kategori : ${category} | Author: ${author} | Judul: ${judul}`);
 });
+
+app.get('/search', (req, res) => {
+  console.log(req.query);
+  
+});
+
+// Harus ditempatkan dipaling bawah dan tidak boleh ditempat di atas
+app.get('*', (req,res) => {
+  res.send('Halaman tidak dapat ditemukan !!');
+});
+
+
+
+
 
 
 app.listen(8080, ()=> { // Digunakna untuk menjalankan method main utama 
