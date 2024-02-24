@@ -13,22 +13,21 @@ const app = express();
   // res.send (`Ini String dari Respon`);
 // });
 
-// app.get('/', (req,res) => {
-//   res.send('This is Homepage');
-// });
+app.get('/', (req,res) => {
+  res.send('This is Homepage');
+});
 
 app.get('/cats', (req,res) => {
   res.send('This is Cats Page');
 });
 
-// app.get('/about', (req,res) => {
-//   res.send('This is About Page');
-// });
+app.get('/about', (req,res) => {
+  res.send('This is About Page');
+});
 
-// app.post('/cats', (req,res) => {
+app.post('/cats', (req,res) => {
 
-// });
-
+});
 
 app.get('/blog/:judul', (req, res) => {
   const { judul } = req.params;
@@ -42,7 +41,7 @@ app.get('/blog/:category/:judul/:author', (req, res) => {
 
 app.get('/search', (req, res) => {
   console.log(req.query);
-  
+
 });
 
 // Harus ditempatkan dipaling bawah dan tidak boleh ditempat di atas
